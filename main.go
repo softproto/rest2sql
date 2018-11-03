@@ -22,5 +22,10 @@ func main() {
 	}
 
 	fmt.Println("raw $filter string:", rawFilterString)
-	fmt.Println("WHERE sentence:", sqlWhere.MakeWhereSentence(rawFilterString))
+	whereSentence, err := sqlWhere.MakeWhereSentence(rawFilterString)
+	if err != nil {
+		fmt.Println("error:", err)
+	} else {
+		fmt.Println("WHERE sentence:", whereSentence)
+	}
 }

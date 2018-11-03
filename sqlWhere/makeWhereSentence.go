@@ -1,6 +1,7 @@
 package sqlWhere
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -19,9 +20,9 @@ var filter map[string]string = map[string]string{
 }
 
 //create the WHERE sentence from the REST "$filter" string
-func MakeWhereSentence(filterString string) string {
+func MakeWhereSentence(filterString string) (string, error) {
 	if strings.Contains(filterString, "$filter=") != true {
-		return ""
+		return "", fmt.Errorf("wrong usage")
 	} else {
 		var operatorWhereSentence string = "WHERE "
 
@@ -41,6 +42,6 @@ func MakeWhereSentence(filterString string) string {
 			}
 		}
 
-		return operatorWhereSentence
+		return operatorWhereSentence, nil
 	}
 }
