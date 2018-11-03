@@ -19,7 +19,7 @@ var filter map[string]string = map[string]string{
 }
 
 //create the WHERE sentence from the REST "$filter" string
-func makeWhereSentence(filterString string) string {
+func MakeWhereSentence(filterString string) string {
 	if strings.Contains(filterString, "$filter=") != true {
 		return ""
 	} else {
