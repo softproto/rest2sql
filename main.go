@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"rest2sql/sqlWhere"
 )
 
 func main() {
@@ -21,5 +22,5 @@ func main() {
 	}
 
 	fmt.Println("raw $filter string:", rawFilterString)
-	fmt.Println("WHERE sentence:", makeWhereSentence(rawFilterString))
+	fmt.Println("WHERE sentence:", sqlWhere.MakeWhereSentence(rawFilterString))
 }
